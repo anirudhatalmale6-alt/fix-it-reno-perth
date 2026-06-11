@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fix It Reno Perth — Roof Leak & Shower Leak Repair Specialists</title>
+<meta name="description" content="Perth's trusted roof leak and shower leak repair specialists. Waterproofing, bathroom repairs, property maintenance, and minor renovations across Perth Metro.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --red:#8B1A1A;--red-deep:#6B1010;--red-light:#A52525;
+  --orange:#E8732A;--orange-glow:#FF8B42;--orange-dark:#D05E18;
+  --cream:#FDF8F3;--warm-grey:#F0EBE4;--mid-grey:#B8AFA5;
+  --text-dark:#1A1A1A;--text-body:#3D3D3D;--text-light:#6B6B6B;
+  --white:#FFFFFF;--charcoal:#2C2C2C;
+  --radius:12px;--radius-sm:8px;--radius-lg:20px;
+  --shadow-sm:0 2px 8px rgba(139,26,26,.08);
+  --shadow-md:0 8px 30px rgba(139,26,26,.12);
+  --shadow-lg:0 20px 60px rgba(139,26,26,.18);
+  --shadow-orange:0 8px 30px rgba(232,115,42,.25);
+}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'Outfit',sans-serif;color:var(--text-body);line-height:1.6;background:var(--cream);overflow-x:hidden}
+h1,h2,h3,h4{font-family:'DM Serif Display',serif;color:var(--charcoal);line-height:1.2;font-weight:400}
+
+body::after{
+  content:'';position:fixed;top:0;left:0;width:100%;height:100%;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:9999;opacity:.5
+}
+
+/* ═══ HEADER ═══ */
+.header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(44,44,44,.97);backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  transition:all .4s cubic-bezier(.4,0,.2,1)
+}
+.header.scrolled{box-shadow:0 4px 30px rgba(0,0,0,.25)}
+.header-inner{
+  max-width:1280px;margin:0 auto;padding:0 32px;
+  display:flex;align-items:center;justify-content:space-between;height:76px
+}
+.logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+.logo-badge{
+  width:50px;height:50px;border-radius:50%;
+  background:var(--red);border:3px solid var(--orange);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:var(--white);
+  box-shadow:0 4px 15px rgba(139,26,26,.4);
+  transition:transform .3s ease;position:relative
+}
+.logo-badge::before{
+  content:'';position:absolute;inset:-4px;border-radius:50%;
+  border:2px solid rgba(232,115,42,.3)
+}
+.logo:hover .logo-badge{transform:scale(1.08)}
+.logo-text{display:flex;flex-direction:column;line-height:1.15}
+.logo-name{font-family:'DM Serif Display',serif;font-size:1.25rem;color:var(--white)}
+.logo-name span{color:var(--orange)}
+.logo-sub{font-size:.65rem;font-weight:600;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase}
+
+.nav{display:flex;align-items:center;gap:6px}
+.nav a{
+  color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;font-weight:500;
+  padding:8px 16px;border-radius:var(--radius-sm);transition:all .3s ease
+}
+.nav a:hover{color:var(--white);background:rgba(255,255,255,.08)}
+.nav a.cta-nav{
+  background:var(--orange);color:var(--white);font-weight:600;
+  box-shadow:0 4px 15px rgba(232,115,42,.3)
+}
+.nav a.cta-nav:hover{background:var(--orange-glow);transform:translateY(-1px)}
+.nav-phone{
+  display:flex;align-items:center;gap:8px;color:var(--white)!important;
+  font-weight:600!important;background:rgba(255,255,255,.06)!important;
+  border:1px solid rgba(255,255,255,.1)!important
+}
+.nav-phone i{color:var(--orange)}
+
+.mobile-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer;padding:8px}
+
+/* ═══ HERO ═══ */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  background:var(--charcoal);overflow:hidden
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 70% 20%, rgba(232,115,42,.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(139,26,26,.3) 0%, transparent 50%),
+    linear-gradient(160deg, #1a1a1a 0%, var(--charcoal) 40%, #3a3a3a 100%);
+}
+.hero-pattern{
+  position:absolute;inset:0;opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20h40M20 0v40' stroke='%23fff' stroke-width='.3'/%3E%3C/svg%3E");
+  background-size:40px 40px
+}
+.hero-content{
+  position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:120px 32px 80px;
+  display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(232,115,42,.12);border:1px solid rgba(232,115,42,.25);
+  padding:8px 18px;border-radius:50px;margin-bottom:24px;
+  font-size:.82rem;font-weight:600;color:var(--orange-glow);letter-spacing:.5px;text-transform:uppercase
+}
+.hero-badge i{font-size:.7rem}
+.hero h1{
+  font-size:clamp(2.6rem,5vw,3.8rem);color:var(--white);margin-bottom:24px;
+  letter-spacing:-1.5px;line-height:1.08
+}
+.hero h1 em{font-style:italic;color:var(--orange)}
+.hero-desc{
+  font-size:1.1rem;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:40px;max-width:520px
+}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:16px 32px;border-radius:var(--radius);font-size:1rem;font-weight:600;
+  text-decoration:none;cursor:pointer;border:none;
+  transition:all .35s cubic-bezier(.4,0,.2,1);font-family:'Outfit',sans-serif
+}
+.btn-primary{background:var(--orange);color:var(--white);box-shadow:var(--shadow-orange)}
+.btn-primary:hover{background:var(--orange-glow);transform:translateY(-2px);box-shadow:0 12px 40px rgba(232,115,42,.35)}
+.btn-outline{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,.2)}
+.btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,.06)}
+.btn-red{background:var(--red);color:var(--white);box-shadow:0 8px 30px rgba(139,26,26,.3)}
+.btn-red:hover{background:var(--red-light);transform:translateY(-2px)}
+
+.hero-visual{position:relative;display:flex;justify-content:center}
+.hero-card{
+  background:var(--white);border-radius:var(--radius-lg);padding:32px;
+  box-shadow:var(--shadow-lg);max-width:380px;width:100%;
+  transform:rotate(2deg);position:relative;z-index:2
+}
+.hero-card::before{
+  content:'';position:absolute;top:-8px;right:-8px;bottom:-8px;left:-8px;
+  background:linear-gradient(135deg,var(--orange),var(--red));
+  border-radius:calc(var(--radius-lg) + 8px);z-index:-1;opacity:.15
+}
+.hero-card-header{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:16px;border-bottom:2px solid var(--cream)}
+.hero-card-header i{color:var(--orange);font-size:1.2rem}
+.hero-card-title{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--charcoal)}
+.hero-card-item{
+  display:flex;align-items:center;gap:14px;padding:14px 0;
+  border-bottom:1px solid rgba(0,0,0,.05)
+}
+.hero-card-item:last-child{border-bottom:none}
+.hero-card-icon{
+  width:42px;height:42px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;flex-shrink:0
+}
+.hero-card-icon.roof{background:rgba(139,26,26,.08);color:var(--red)}
+.hero-card-icon.shower{background:rgba(52,152,219,.08);color:#3498DB}
+.hero-card-icon.bath{background:rgba(232,115,42,.08);color:var(--orange)}
+.hero-card-item-text h4{font-size:.92rem;margin-bottom:2px}
+.hero-card-item-text p{font-size:.78rem;color:var(--text-light)}
+.hero-card-status{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:4px 12px;border-radius:50px;font-size:.72rem;font-weight:600;
+  background:rgba(46,204,113,.1);color:#2ECC71;margin-top:4px
+}
+.hero-card-status::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor}
+
+.hero-float{
+  position:absolute;background:var(--white);border-radius:var(--radius);
+  padding:14px 20px;box-shadow:var(--shadow-md);z-index:3;
+  display:flex;align-items:center;gap:10px
+}
+.hero-float-reviews{top:8%;left:-30px;transform:rotate(-3deg)}
+.hero-float-reviews .stars{color:#F1C40F;font-size:.85rem;letter-spacing:2px}
+.hero-float-reviews p{font-size:.8rem;font-weight:600;color:var(--charcoal)}
+.hero-float-response{bottom:12%;right:-20px;transform:rotate(2deg)}
+.hero-float-response i{color:var(--red);font-size:1.2rem}
+.hero-float-response div p:first-child{font-size:.72rem;color:var(--text-light)}
+.hero-float-response div p:last-child{font-size:.88rem;font-weight:600;color:var(--charcoal)}
+
+/* ═══ TRUST BAR ═══ */
+.trust-bar{
+  background:var(--red);padding:20px 0;position:relative;z-index:5;
+  border-bottom:3px solid var(--orange)
+}
+.trust-bar-inner{
+  max-width:1280px;margin:0 auto;padding:0 32px;
+  display:flex;justify-content:center;gap:48px;flex-wrap:wrap
+}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:.88rem;color:rgba(255,255,255,.9);font-weight:500}
+.trust-item i{color:var(--orange-glow);font-size:1rem}
+
+/* ═══ SECTIONS COMMON ═══ */
+.section{padding:100px 0}
+.section-inner{max-width:1280px;margin:0 auto;padding:0 32px}
+.section-label{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--orange);margin-bottom:16px
+}
+.section-label::before{content:'';width:24px;height:2px;background:var(--orange);border-radius:2px}
+.section-title{font-size:clamp(2rem,4vw,3rem);margin-bottom:20px;letter-spacing:-1px}
+.section-desc{font-size:1.05rem;color:var(--text-light);max-width:560px;line-height:1.7}
+
+/* ═══ SERVICES ═══ */
+.services{background:var(--cream)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.service-card{
+  background:var(--white);border-radius:var(--radius-lg);padding:36px 30px;
+  border:1px solid rgba(0,0,0,.05);
+  transition:all .4s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;cursor:default
+}
+.service-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--red),var(--orange));
+  transform:scaleX(0);transform-origin:left;transition:transform .4s ease
+}
+.service-card:hover::before{transform:scaleX(1)}
+.service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:transparent}
+.service-icon{
+  width:60px;height:60px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;margin-bottom:22px;
+  background:linear-gradient(135deg,rgba(139,26,26,.06),rgba(139,26,26,.12));
+  color:var(--red);transition:all .4s ease
+}
+.service-card:hover .service-icon{
+  background:linear-gradient(135deg,var(--red),var(--orange));color:var(--white);
+  box-shadow:0 8px 25px rgba(139,26,26,.25);transform:scale(1.05)
+}
+.service-card h3{font-size:1.2rem;margin-bottom:10px}
+.service-card p{font-size:.9rem;color:var(--text-light);line-height:1.6}
+
+/* ═══ ABOUT ═══ */
+.about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:56px}
+.about-image{
+  position:relative;border-radius:var(--radius-lg);overflow:hidden;
+  aspect-ratio:4/3.5;
+  background:linear-gradient(135deg,var(--charcoal),#3a3a3a);
+  display:flex;align-items:center;justify-content:center
+}
+.about-image-inner{text-align:center;color:var(--white);padding:40px}
+.about-image-inner i{font-size:4rem;opacity:.25;margin-bottom:20px;display:block}
+.about-image-inner p{font-size:1rem;opacity:.4;font-weight:500}
+.about-exp{
+  position:absolute;bottom:24px;left:24px;
+  background:linear-gradient(135deg,var(--red),var(--red-light));color:var(--white);
+  padding:20px 24px;border-radius:var(--radius);
+  box-shadow:0 8px 30px rgba(139,26,26,.4)
+}
+.about-exp .num{font-family:'DM Serif Display',serif;font-size:2.8rem;line-height:1;color:var(--white)}
+.about-exp .lab{font-size:.85rem;font-weight:500;opacity:.9}
+
+.about-content h3{font-size:1.7rem;margin-bottom:20px;letter-spacing:-.5px}
+.about-content>p{color:var(--text-light);margin-bottom:28px;line-height:1.7}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.about-feat{
+  display:flex;align-items:flex-start;gap:14px;padding:18px;
+  background:var(--cream);border-radius:var(--radius);transition:all .3s ease
+}
+.about-feat:hover{background:rgba(232,115,42,.06);transform:translateX(4px)}
+.about-feat-icon{
+  width:42px;height:42px;border-radius:10px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--red);color:var(--white);font-size:.95rem
+}
+.about-feat h4{font-size:.92rem;margin-bottom:3px}
+.about-feat p{font-size:.8rem;color:var(--text-light)}
+
+/* ═══ AREAS ═══ */
+.areas{background:var(--cream)}
+.areas-content{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:56px;align-items:start}
+.areas-map{
+  background:linear-gradient(135deg,var(--charcoal),#3a3a3a);
+  border-radius:var(--radius-lg);padding:48px;
+  position:relative;overflow:hidden;min-height:400px;
+  display:flex;align-items:center;justify-content:center
+}
+.areas-map::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 60% 40%,rgba(232,115,42,.1),transparent 70%);
+}
+.areas-map-inner{position:relative;z-index:2;text-align:center;color:var(--white)}
+.areas-map-inner i{font-size:3.5rem;opacity:.35;margin-bottom:16px;display:block}
+.areas-map-inner p{font-size:1.1rem;font-weight:500;opacity:.6}
+.areas-map-inner .perth{font-family:'DM Serif Display',serif;font-size:2rem;opacity:.8;margin-bottom:8px;color:var(--white)}
+.areas-list{display:flex;flex-direction:column;gap:10px}
+.area-item{
+  display:flex;align-items:center;gap:16px;padding:18px 22px;
+  background:var(--white);border-radius:var(--radius);
+  border:1px solid rgba(0,0,0,.05);transition:all .35s ease;cursor:default
+}
+.area-item:hover{transform:translateX(8px);border-color:var(--orange);box-shadow:var(--shadow-sm)}
+.area-item i{color:var(--orange);font-size:1rem;width:20px;text-align:center}
+.area-item span{font-weight:500;font-size:.95rem;color:var(--charcoal)}
+
+/* ═══ CONTACT ═══ */
+.contact{background:var(--white);position:relative}
+.contact::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:420px;
+  background:linear-gradient(180deg,var(--charcoal),#3a3a3a);
+}
+.contact .section-inner{position:relative;z-index:2}
+.contact .section-label,.contact .section-title,.contact .section-desc{color:var(--white)}
+.contact .section-label{color:var(--orange-glow)}
+.contact .section-desc{color:rgba(255,255,255,.55)}
+
+.contact-wrapper{display:grid;grid-template-columns:1fr 1.3fr;gap:40px;margin-top:48px}
+.contact-info{
+  background:rgba(255,255,255,.05);backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius-lg);padding:40px;color:var(--white)
+}
+.contact-info h3{color:var(--white);font-size:1.5rem;margin-bottom:8px}
+.contact-info>p{color:rgba(255,255,255,.45);margin-bottom:32px;font-size:.92rem}
+.contact-detail{display:flex;align-items:flex-start;gap:16px;margin-bottom:24px}
+.contact-detail-icon{
+  width:44px;height:44px;border-radius:12px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(232,115,42,.15);color:var(--orange-glow);font-size:1rem
+}
+.contact-detail h4{font-size:.92rem;color:var(--white);margin-bottom:4px;font-family:'Outfit',sans-serif;font-weight:600}
+.contact-detail p{font-size:.85rem;color:rgba(255,255,255,.45);line-height:1.5}
+.contact-hours{margin-top:32px;padding-top:28px;border-top:1px solid rgba(255,255,255,.08)}
+.contact-hours h4{font-size:1rem;color:var(--white);margin-bottom:16px;font-family:'Outfit',sans-serif;font-weight:600}
+.hours-row{display:flex;justify-content:space-between;padding:8px 0;font-size:.86rem}
+.hours-row .day{color:rgba(255,255,255,.5)}
+.hours-row .time{color:var(--white);font-weight:500}
+
+.contact-form-card{
+  background:var(--white);border-radius:var(--radius-lg);padding:44px;
+  box-shadow:var(--shadow-lg)
+}
+.contact-form-card h3{font-size:1.4rem;margin-bottom:6px}
+.contact-form-card>p{color:var(--text-light);font-size:.9rem;margin-bottom:28px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:.83rem;font-weight:600;color:var(--charcoal);margin-bottom:8px;letter-spacing:.3px}
+.form-group label .req{color:var(--red)}
+.form-input{
+  width:100%;padding:14px 18px;border:2px solid rgba(0,0,0,.07);
+  border-radius:var(--radius-sm);font-size:.95rem;font-family:'Outfit',sans-serif;
+  color:var(--text-dark);background:var(--cream);transition:all .3s ease;outline:none
+}
+.form-input:focus{border-color:var(--orange);background:var(--white);box-shadow:0 0 0 4px rgba(232,115,42,.1)}
+.form-input::placeholder{color:var(--mid-grey)}
+textarea.form-input{min-height:120px;resize:vertical}
+
+.upload-zone{
+  border:2px dashed rgba(139,26,26,.2);border-radius:var(--radius);
+  padding:36px;text-align:center;cursor:pointer;
+  transition:all .3s ease;background:var(--cream);position:relative
+}
+.upload-zone:hover,.upload-zone.dragover{border-color:var(--orange);background:rgba(232,115,42,.04)}
+.upload-zone.dragover{transform:scale(1.01)}
+.upload-zone input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.upload-icon{
+  width:56px;height:56px;border-radius:14px;margin:0 auto 16px;
+  background:linear-gradient(135deg,rgba(139,26,26,.08),rgba(232,115,42,.14));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;color:var(--red)
+}
+.upload-zone h4{font-family:'Outfit',sans-serif;font-weight:600;font-size:1rem;color:var(--charcoal);margin-bottom:6px}
+.upload-zone p{font-size:.85rem;color:var(--text-light)}
+.upload-zone p span{color:var(--orange);font-weight:600}
+.upload-previews{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:10px;margin-top:16px}
+.upload-preview{position:relative;aspect-ratio:1;border-radius:var(--radius-sm);overflow:hidden;border:2px solid rgba(0,0,0,.06)}
+.upload-preview img{width:100%;height:100%;object-fit:cover}
+.upload-preview .remove{
+  position:absolute;top:4px;right:4px;width:22px;height:22px;
+  border-radius:50%;background:rgba(0,0,0,.6);color:var(--white);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.65rem;cursor:pointer;border:none;transition:all .2s ease;opacity:0
+}
+.upload-preview:hover .remove{opacity:1}
+.upload-preview .remove:hover{background:var(--red)}
+
+.btn-submit{
+  width:100%;padding:18px;
+  background:linear-gradient(135deg,var(--red),var(--orange));
+  color:var(--white);border:none;border-radius:var(--radius);
+  font-size:1.05rem;font-weight:700;font-family:'Outfit',sans-serif;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  transition:all .35s ease;box-shadow:0 8px 30px rgba(139,26,26,.25);margin-top:8px
+}
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(139,26,26,.35);filter:brightness(1.08)}
+.btn-submit i{transition:transform .3s ease}
+.btn-submit:hover i{transform:translateX(4px)}
+
+/* ═══ FOOTER ═══ */
+.footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:60px 0 30px;position:relative;overflow:hidden}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),var(--orange),var(--red))}
+.footer-inner{max-width:1280px;margin:0 auto;padding:0 32px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand .logo{margin-bottom:16px}
+.footer-brand p{font-size:.88rem;line-height:1.7;max-width:300px}
+.footer h4{color:var(--white);font-family:'Outfit',sans-serif;font-weight:600;font-size:.95rem;margin-bottom:18px}
+.footer ul{list-style:none}
+.footer ul li{margin-bottom:10px}
+.footer ul a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.88rem;transition:color .3s ease}
+.footer ul a:hover{color:var(--orange-glow)}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:28px;border-top:1px solid rgba(255,255,255,.08);font-size:.83rem
+}
+.footer-social{display:flex;gap:12px}
+.footer-social a{
+  width:38px;height:38px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.06);color:rgba(255,255,255,.5);
+  transition:all .3s ease;font-size:.9rem
+}
+.footer-social a:hover{background:var(--orange);color:var(--white);transform:translateY(-2px)}
+
+/* ═══ MOBILE CALL BUTTON ═══ */
+.mobile-call{
+  display:none;position:fixed;bottom:24px;right:24px;z-index:999;
+  width:60px;height:60px;border-radius:50%;
+  background:linear-gradient(135deg,var(--red),var(--orange));
+  color:var(--white);font-size:1.3rem;
+  border:none;cursor:pointer;
+  box-shadow:0 8px 30px rgba(139,26,26,.4);
+  transition:all .3s ease;text-decoration:none;
+  align-items:center;justify-content:center
+}
+.mobile-call:hover{transform:scale(1.08)}
+.mobile-call::before{
+  content:'';position:absolute;inset:-6px;border-radius:50%;
+  border:2px solid rgba(232,115,42,.3);animation:callPulse 2s ease-in-out infinite
+}
+@keyframes callPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.2);opacity:0}}
+
+/* ═══ SCROLL REVEAL ═══ */
+.reveal{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.4,0,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}.reveal-delay-4{transition-delay:.4s}
+.reveal-delay-5{transition-delay:.5s}
+
+.mobile-menu{
+  display:none;position:fixed;top:76px;left:0;right:0;
+  background:rgba(44,44,44,.98);backdrop-filter:blur(20px);
+  padding:20px 32px;z-index:999;border-bottom:1px solid rgba(255,255,255,.06);
+  transform:translateY(-10px);opacity:0;pointer-events:none;transition:all .3s ease
+}
+.mobile-menu.open{transform:translateY(0);opacity:1;pointer-events:all}
+.mobile-menu a{
+  display:block;padding:14px 0;color:rgba(255,255,255,.7);
+  text-decoration:none;font-size:1rem;font-weight:500;
+  border-bottom:1px solid rgba(255,255,255,.06);transition:color .3s ease
+}
+.mobile-menu a:last-child{border-bottom:none}
+.mobile-menu a:hover{color:var(--white)}
+
+@media(max-width:1024px){
+  .hero-content{grid-template-columns:1fr;text-align:center}
+  .hero-desc{margin:0 auto 40px}
+  .hero-btns{justify-content:center}
+  .hero-visual{display:none}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-image{max-height:300px}
+  .areas-content{grid-template-columns:1fr}
+  .contact-wrapper{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media(max-width:768px){
+  .nav{display:none}
+  .mobile-toggle{display:block}
+  .mobile-menu{display:block}
+  .mobile-call{display:flex}
+  .section{padding:70px 0}
+  .services-grid{grid-template-columns:1fr}
+  .about-features{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .hero h1{font-size:2.2rem}
+  .footer-grid{grid-template-columns:1fr;gap:28px}
+  .footer-bottom{flex-direction:column;gap:16px;text-align:center}
+  .trust-bar-inner{gap:20px}
+}
+@media(max-width:480px){
+  .header-inner{padding:0 20px}
+  .section-inner{padding:0 20px}
+  .contact-form-card{padding:28px 22px}
+  .contact-info{padding:28px 22px}
+}
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-badge"><i class="fas fa-wrench"></i></div>
+      <div class="logo-text">
+        <span class="logo-name">Fix It <span>Reno</span> Perth</span>
+        <span class="logo-sub">Delivering Customised Projects</span>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#areas">Areas</a>
+      <a href="tel:+61498758338" class="nav-phone"><i class="fas fa-phone"></i> 0498 758 338</a>
+      <a href="#contact" class="cta-nav">Get a Quote</a>
+    </nav>
+    <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+      <i class="fas fa-bars" id="menuIcon"></i>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMobileMenu()">Services</a>
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#areas" onclick="closeMobileMenu()">Areas</a>
+  <a href="tel:+61498758338" onclick="closeMobileMenu()">Call 0498 758 338</a>
+  <a href="#contact" onclick="closeMobileMenu()">Get a Quote</a>
+</div>
+
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-badge"><i class="fas fa-circle"></i> Perth's Leak Repair Specialists</div>
+      <h1>Roof Leaks &amp; Shower Repairs <em>Done Right</em></h1>
+      <p class="hero-desc">We find and fix water-related issues before they become expensive structural problems. Snap a photo of the damage, tell us what's happening, and we'll get you a quote fast.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-primary"><i class="fas fa-camera"></i> Send Photos &amp; Get a Quote</a>
+        <a href="tel:+61498758338" class="btn btn-outline"><i class="fas fa-phone"></i> 0498 758 338</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <i class="fas fa-clipboard-check"></i>
+          <div class="hero-card-title">Recent Jobs</div>
+        </div>
+        <div class="hero-card-item">
+          <div class="hero-card-icon roof"><i class="fas fa-house-chimney-crack"></i></div>
+          <div class="hero-card-item-text">
+            <h4>Roof Tile Leak Repair</h4>
+            <p>Riverton, WA</p>
+            <div class="hero-card-status">Completed</div>
+          </div>
+        </div>
+        <div class="hero-card-item">
+          <div class="hero-card-icon shower"><i class="fas fa-shower"></i></div>
+          <div class="hero-card-item-text">
+            <h4>Shower Recess Waterproofing</h4>
+            <p>Willetton, WA</p>
+            <div class="hero-card-status">Completed</div>
+          </div>
+        </div>
+        <div class="hero-card-item">
+          <div class="hero-card-icon bath"><i class="fas fa-bath"></i></div>
+          <div class="hero-card-item-text">
+            <h4>Full Bathroom Renovation</h4>
+            <p>Bull Creek, WA</p>
+            <div class="hero-card-status">Completed</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-float hero-float-reviews">
+        <div>
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p>Trusted in Perth</p>
+        </div>
+      </div>
+      <div class="hero-float hero-float-response">
+        <i class="fas fa-clock"></i>
+        <div>
+          <p>Avg. Response</p>
+          <p>Same Day</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item"><i class="fas fa-shield-halved"></i> Fully Insured</div>
+    <div class="trust-item"><i class="fas fa-droplet-slash"></i> Leak Detection Experts</div>
+    <div class="trust-item"><i class="fas fa-dollar-sign"></i> Free Quotes</div>
+    <div class="trust-item"><i class="fas fa-thumbs-up"></i> Quality Guaranteed</div>
+    <div class="trust-item"><i class="fas fa-map-pin"></i> Perth Metro Wide</div>
+  </div>
+</div>
+
+<section class="section services" id="services">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Specialist Repairs &amp;<br>Renovations</h2>
+      <p class="section-desc">From pinpointing hidden leaks to complete bathroom makeovers, we deliver practical solutions and quality workmanship every time.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon"><i class="fas fa-house-chimney-crack"></i></div>
+        <h3>Roof Leak Repairs</h3>
+        <p>Expert leak detection, broken tile replacement, flashing repairs, ridge capping, storm damage restoration, and ongoing roof maintenance.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon"><i class="fas fa-shower"></i></div>
+        <h3>Shower Leak Repairs</h3>
+        <p>Shower recess diagnostics, regrouting, silicone replacement, waterproof membrane repair, and complete shower restoration.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon"><i class="fas fa-bath"></i></div>
+        <h3>Bathroom Repairs</h3>
+        <p>Tiling repairs, water damage remediation, waterproofing, bathtub replacement, vanity installs, and fixture upgrades.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-4">
+        <div class="service-icon"><i class="fas fa-screwdriver-wrench"></i></div>
+        <h3>Property Maintenance</h3>
+        <p>General repairs, rental property upkeep, carpentry, painting, handyman services, and everything to keep your property in top shape.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-5">
+        <div class="service-icon"><i class="fas fa-droplet"></i></div>
+        <h3>Waterproofing</h3>
+        <p>Internal and external waterproofing solutions, membrane application, water damage prevention, and long-term moisture control.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-5">
+        <div class="service-icon"><i class="fas fa-house-chimney"></i></div>
+        <h3>Minor Renovations</h3>
+        <p>Bathroom upgrades, laundry improvements, kitchen refreshes, and renovation repairs that transform your living spaces.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title">Perth's Trusted<br>Repair Specialists</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-image reveal">
+        <div class="about-image-inner">
+          <i class="fas fa-hard-hat"></i>
+          <p>Your Business Photo Here</p>
+        </div>
+        <div class="about-exp">
+          <div class="num">Perth</div>
+          <div class="lab">Local &amp; Trusted</div>
+        </div>
+      </div>
+      <div class="about-content reveal reveal-delay-2">
+        <h3>We fix water problems before they become expensive disasters.</h3>
+        <p>Fix It Reno Perth specialises in identifying and repairing water-related issues — from roof leaks to shower failures — before they escalate into costly structural damage. We're a locally owned Perth business that takes pride in practical solutions and quality workmanship.</p>
+        <p>Whether it's a dripping ceiling, a failing shower recess, or a full bathroom renovation, you'll get experienced tradesmen who diagnose the real problem and fix it properly the first time. No band-aid solutions, no inflated quotes.</p>
+        <div class="about-features">
+          <div class="about-feat">
+            <div class="about-feat-icon"><i class="fas fa-search"></i></div>
+            <div>
+              <h4>Leak Detection</h4>
+              <p>We find the source, not just the symptom</p>
+            </div>
+          </div>
+          <div class="about-feat">
+            <div class="about-feat-icon"><i class="fas fa-shield-halved"></i></div>
+            <div>
+              <h4>Fully Insured</h4>
+              <p>Complete liability coverage</p>
+            </div>
+          </div>
+          <div class="about-feat">
+            <div class="about-feat-icon"><i class="fas fa-handshake"></i></div>
+            <div>
+              <h4>Quality Guaranteed</h4>
+              <p>We stand behind every repair</p>
+            </div>
+          </div>
+          <div class="about-feat">
+            <div class="about-feat-icon"><i class="fas fa-broom"></i></div>
+            <div>
+              <h4>Clean &amp; Tidy</h4>
+              <p>Your home left spotless after every job</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section areas" id="areas">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Coverage Area</div>
+      <h2 class="section-title">Servicing Perth<br>Metro &amp; Beyond</h2>
+      <p class="section-desc">Proudly serving homeowners and property managers across Perth's southern suburbs and greater metro area.</p>
+    </div>
+    <div class="areas-content">
+      <div class="areas-map reveal">
+        <div class="areas-map-inner">
+          <i class="fas fa-map-location-dot"></i>
+          <div class="perth">Perth, WA</div>
+          <p>Southern Suburbs &amp;<br>Greater Metro Area</p>
+        </div>
+      </div>
+      <div class="areas-list reveal reveal-delay-2">
+        <div class="area-item"><i class="fas fa-location-dot"></i><span>Riverton</span></div>
+        <div class="area-item"><i class="fas fa-location-dot"></i><span>Ferndale</span></div>
+        <div class="area-item"><i class="fas fa-location-dot"></i><span>Willetton &amp; Parkwood</span></div>
+        <div class="area-item"><i class="fas fa-location-dot"></i><span>Bull Creek &amp; Rossmoyne</span></div>
+        <div class="area-item"><i class="fas fa-location-dot"></i><span>Canning Vale</span></div>
+        <div class="area-item"><i class="fas fa-location-dot"></i><span>South Perth</span></div>
+        <div class="area-item"><i class="fas fa-location-dot"></i><span>Greater Perth Metro</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Send Us Photos<br>of the Damage</h2>
+      <p class="section-desc">Snap a few photos of the leak or repair issue, describe what's happening, and we'll get back to you with a quote — usually same day.</p>
+    </div>
+    <div class="contact-wrapper">
+      <div class="contact-info reveal">
+        <h3>Let's Talk</h3>
+        <p>Reach out any way you're comfortable. We're here to help.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <h4>Phone</h4>
+            <p>0498 758 338</p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-envelope"></i></div>
+          <div>
+            <h4>Email</h4>
+            <p>fixitrenoperth@gmail.com</p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-location-dot"></i></div>
+          <div>
+            <h4>Service Area</h4>
+            <p>Perth Metro &amp;<br>Surrounding Suburbs</p>
+          </div>
+        </div>
+        <div class="contact-hours">
+          <h4>Business Hours</h4>
+          <div class="hours-row"><span class="day">Monday - Friday</span><span class="time">7:00 AM - 5:00 PM</span></div>
+          <div class="hours-row"><span class="day">Saturday</span><span class="time">8:00 AM - 2:00 PM</span></div>
+          <div class="hours-row"><span class="day">Sunday</span><span class="time">Emergency Only</span></div>
+        </div>
+      </div>
+      <div class="contact-form-card reveal reveal-delay-2">
+        <h3>Request a Free Quote</h3>
+        <p>Fill out the form and attach photos of the damage or repair needed.</p>
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name <span class="req">*</span></label>
+              <input type="text" class="form-input" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label>Phone Number <span class="req">*</span></label>
+              <input type="tel" class="form-input" placeholder="04XX XXX XXX" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email Address <span class="req">*</span></label>
+              <input type="email" class="form-input" placeholder="you@email.com" required>
+            </div>
+            <div class="form-group">
+              <label>Suburb / Address <span class="req">*</span></label>
+              <input type="text" class="form-input" placeholder="e.g. Willetton, WA" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Describe the Issue <span class="req">*</span></label>
+            <textarea class="form-input" placeholder="Tell us what's happening — where's the leak, how long has it been there, any visible damage..." required></textarea>
+          </div>
+          <div class="form-group">
+            <label>Photos of the Issue</label>
+            <div class="upload-zone" id="uploadZone">
+              <input type="file" id="fileInput" multiple accept="image/*">
+              <div class="upload-icon"><i class="fas fa-cloud-arrow-up"></i></div>
+              <h4>Drag photos here or <span style="color:var(--orange)">browse</span></h4>
+              <p>Upload up to 5 images <span>(JPG, PNG, HEIC)</span></p>
+              <div class="upload-previews" id="uploadPreviews"></div>
+            </div>
+          </div>
+          <button type="submit" class="btn-submit">
+            <span>Send My Request</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <div class="logo-badge"><i class="fas fa-wrench"></i></div>
+          <div class="logo-text">
+            <span class="logo-name">Fix It <span>Reno</span> Perth</span>
+            <span class="logo-sub">Delivering Customised Projects</span>
+          </div>
+        </a>
+        <p>Perth's trusted specialists in roof leak repairs, shower repairs, waterproofing, and property maintenance.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Roof Leak Repairs</a></li>
+          <li><a href="#services">Shower Leak Repairs</a></li>
+          <li><a href="#services">Bathroom Repairs</a></li>
+          <li><a href="#services">Property Maintenance</a></li>
+          <li><a href="#services">Waterproofing</a></li>
+          <li><a href="#services">Minor Renovations</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#areas">Service Areas</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+61498758338">0498 758 338</a></li>
+          <li><a href="mailto:fixitrenoperth@gmail.com">fixitrenoperth@gmail.com</a></li>
+          <li><a href="#areas">Perth Metro, WA</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Fix It Reno Perth. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Google"><i class="fab fa-google"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:+61498758338" class="mobile-call" aria-label="Call now"><i class="fas fa-phone"></i></a>
+
+<script>
+const header=document.getElementById('header');
+window.addEventListener('scroll',()=>{header.classList.toggle('scrolled',window.scrollY>50)},{passive:true});
+
+function toggleMobileMenu(){
+  const m=document.getElementById('mobileMenu'),i=document.getElementById('menuIcon');
+  const o=m.classList.toggle('open');i.className=o?'fas fa-xmark':'fas fa-bars';
+}
+function closeMobileMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('menuIcon').className='fas fa-bars';
+}
+
+const revEls=document.querySelectorAll('.reveal');
+const revObs=new IntersectionObserver(e=>{
+  e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');revObs.unobserve(en.target)}})
+},{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+revEls.forEach(el=>revObs.observe(el));
+
+const uploadZone=document.getElementById('uploadZone');
+const fileInput=document.getElementById('fileInput');
+const previewsC=document.getElementById('uploadPreviews');
+let upFiles=[];
+
+['dragenter','dragover'].forEach(ev=>{uploadZone.addEventListener(ev,e=>{e.preventDefault();uploadZone.classList.add('dragover')})});
+['dragleave','drop'].forEach(ev=>{uploadZone.addEventListener(ev,e=>{e.preventDefault();uploadZone.classList.remove('dragover')})});
+uploadZone.addEventListener('drop',e=>{addFiles([...e.dataTransfer.files].filter(f=>f.type.startsWith('image/')))});
+fileInput.addEventListener('change',e=>{addFiles([...e.target.files]);e.target.value=''});
+
+function addFiles(files){
+  const rem=5-upFiles.length;
+  files.slice(0,rem).forEach(f=>{
+    upFiles.push(f);const r=new FileReader();
+    r.onload=e=>{const d=document.createElement('div');d.className='upload-preview';
+    d.innerHTML=`<img src="${e.target.result}" alt="Preview"><button type="button" class="remove" onclick="removeFile(this,${upFiles.length-1})"><i class="fas fa-xmark"></i></button>`;
+    previewsC.appendChild(d)};r.readAsDataURL(f)
+  })
+}
+function removeFile(b,i){upFiles[i]=null;b.parentElement.remove()}
+
+function handleSubmit(e){
+  e.preventDefault();const b=e.target.querySelector('.btn-submit');
+  b.innerHTML='<i class="fas fa-check" style="font-size:1.2rem"></i> <span>Request Sent!</span>';
+  b.style.background='#2ECC71';b.style.boxShadow='0 8px 30px rgba(46,204,113,.3)';b.disabled=true;
+  setTimeout(()=>{b.innerHTML='<span>Send My Request</span><i class="fas fa-arrow-right"></i>';
+  b.style.background='';b.style.boxShadow='';b.disabled=false;
+  e.target.reset();previewsC.innerHTML='';upFiles=[]},3000)
+}
+</script>
+</body>
+</html>
